@@ -7,17 +7,17 @@ public class distancecoverterfeet {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        // Take user input for distance in feet
+        
         System.out.print("Enter the distance in feet: ");
         double distanceFeet = input.nextDouble();
 
-        // Convert feet to yards (1 yard = 3 feet)
+        
         double distanceYards = distanceFeet / 3;
 
-        // Convert yards to miles (1 mile = 1760 yards)
+       
         double distanceMiles = distanceYards / 1760;
 
-        // Display output
+       
         System.out.println(
             "The distance of " + distanceFeet + " feet is " + distanceYards + " yards and " + distanceMiles + " miles."
         );
