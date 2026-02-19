@@ -1,56 +1,57 @@
+package com.gla.array.Level1;
 
-    import java.util.Scanner;
+import java.util.Scanner;
 
-public class FindFactors {
+public class FactorsArray {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-
-        // a. Take input
+        
         System.out.print("Enter a number: ");
         int number = sc.nextInt();
-
-        // b. Initialize variables
+        
+        if (number <= 0) {
+            System.out.println("Please enter a positive integer");
+            sc.close();
+            return;
+        }
+        
+        // Initialize variables
         int maxFactor = 10;
         int[] factors = new int[maxFactor];
         int index = 0;
-
-        // c. Loop to find factors
+        
+        // Find factors and store in array
         for (int i = 1; i <= number; i++) {
-
             if (number % i == 0) {
-
-                // If array is full, increase size
+                // Check if array needs to be resized
                 if (index == maxFactor) {
-
-                    // d. Double the size
+                    // Reset maxFactor to twice its size
                     maxFactor = maxFactor * 2;
+                    
+                    // Create temp array and copy elements
                     int[] temp = new int[maxFactor];
-
-                    // Copy old elements to new array
                     for (int j = 0; j < factors.length; j++) {
                         temp[j] = factors[j];
                     }
-
-                    // Assign new array to factors
+                    
+                    // Assign temp array to factors array
                     factors = temp;
                 }
-
-                // Store factor
+                
+                // Add factor to array
                 factors[index] = i;
                 index++;
             }
         }
-
-        // e. Display factors
+        
+        // Display the factors
         System.out.println("\nFactors of " + number + " are:");
-
         for (int i = 0; i < index; i++) {
             System.out.print(factors[i] + " ");
         }
-
+        System.out.println();
+        System.out.println("Total number of factors: " + index);
+        
         sc.close();
     }
 }
-
-
